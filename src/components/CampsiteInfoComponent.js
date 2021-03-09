@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 
 
-class CampsiteInfo extends Component {
 /*Displays the campsite clicked*/
-    renderCampsite(campsite) {
+function RenderCampsite({campsite}) {
         console.log(campsite);
         return (
             <div className="col-md-5 m-1">
@@ -20,7 +19,7 @@ class CampsiteInfo extends Component {
     }
 
     /*Displays comments using the map function */
-    renderComments(comments) {
+function RenderComments({comments}) {
         if(comments) {
             return (
                 <div className="col-md-5 m-1">
@@ -42,14 +41,14 @@ class CampsiteInfo extends Component {
             );
         };
     }
-    render() {
+function CampsiteInfo(props) {
         
-        if (this.props.campsite) {
+        if (props.campsite) {
             return (
             <div className="container">
                 <div className="row">
-                    {this.renderCampsite(this.props.campsite)}
-                    {this.renderComments(this.props.campsite.comments)}
+                    <RenderCampsite campsite={props.campsite} />
+                    <RenderComments comments={props.campsite.comments} />
                 </div>
             </div>
             );
@@ -62,6 +61,6 @@ class CampsiteInfo extends Component {
             
         
     }
-}
+
 
 export default CampsiteInfo;
