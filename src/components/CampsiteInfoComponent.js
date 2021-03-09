@@ -38,7 +38,7 @@ class CampsiteInfo extends Component {
                 
         } else {
             return (
-                <div>No comments to be had yet :(</div>
+                <div></div>
             );
         };
     }
@@ -56,7 +56,7 @@ class CampsiteInfo extends Component {
 
         
         } else {
-            return (<div>No campsite Selected</div>);
+            return (<div></div>);
         }
 
             
