@@ -17,7 +17,8 @@ class Directory extends Component {
         if (campsite) {
             return (
                 <Card>
-                   <CardBody>
+                    <CardImg top src={campsite.image} alt={campsite.name} />
+                    <CardBody>
                         <CardTitle>{campsite.name}</CardTitle>
                         <CardText>{campsite.description}</CardText>
                     </CardBody>
