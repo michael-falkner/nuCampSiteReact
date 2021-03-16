@@ -16,6 +16,7 @@ class Header extends Component {
         };
 
         this.toggleModal = this.toggleModal.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
     }
 
     toggleNav() {
@@ -28,7 +29,11 @@ class Header extends Component {
             isModalOpen: !this.state.isModalOpen
         });
     }
-
+    handleLogin(event) {
+        alert(`Username: ${this.username.value} Password: ${this.password.value} Remember: ${this.remember.checked}`);
+        this.toggleModal();
+        event.preventDefault();
+    }
     render() {
         return (
             <React.Fragment>
