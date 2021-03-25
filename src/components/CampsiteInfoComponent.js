@@ -33,7 +33,7 @@ class CommentForm extends React.Component {
         this.toggleCommentModal();
       };
     render() {
-       
+       //Modal Below with validation
         return(
             <div>
              <Button outline onClick={this.toggleCommentModal}><i className="fa fa-lg fa-pencil" aria-hidden="true"/>Submit Comment</Button>
