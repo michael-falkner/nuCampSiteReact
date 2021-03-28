@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { LocalForm, Control, Errors } from 'react-redux-form';
 import { ConfigureStore } from '../redux/configureStore';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
+
 
 
 class CommentForm extends React.Component {
@@ -106,7 +108,7 @@ function RenderCampsite({campsite}) {
             <div className="col-md-5 m-1">
                 <Card>
                    <CardBody>
-                   <CardImg top src={campsite.image} alt={campsite.name} />
+                   <CardImg top src={baseUrl + campsite.image} alt={campsite.name} />
                         <CardText>{campsite.description}</CardText>
                     </CardBody>
                 </Card>
