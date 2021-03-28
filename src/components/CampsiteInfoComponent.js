@@ -14,7 +14,7 @@ class CommentForm extends React.Component {
         super(props);
 
         this.state = {
-            isCommentModalOpen: false,
+            isModalOpen: false,
             rating: '',
             author: '',
             text: '',
@@ -24,24 +24,24 @@ class CommentForm extends React.Component {
 
      }
 
-    toggleCommentModal = () => {
+     toggleModal = () => {
         this.setState({
-            isCommentModalOpen: !this.state.isCommentModalOpen
+            isModalOpen: !this.state.isModalOpen
         });
     }
     
     handleSubmit(values) {
-        this.toggleCommentModal();
-        this.props.addComment(this.props.campsiteId, values.rating, values.author, values.text);
+        this.toggleModal();
+        this.props.postComment(this.props.campsiteId, values.rating, values.author, values.text);
     }
 
     render() {
        //Modal Below with validation
         return(
             <div>
-             <Button outline onClick={this.toggleCommentModal}><i className="fa fa-lg fa-pencil" aria-hidden="true"/>Submit Comment</Button>
-             <Modal isOpen={this.state.isCommentModalOpen} toggle={this.toggleCommentModal}>
-                 <ModalHeader toggle={this.toggleCommentModal}>
+             <Button outline onClick={this.toggleModal}><i className="fa fa-lg fa-pencil" aria-hidden="true"/>Submit Comment</Button>
+             <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                 <ModalHeader toggle={this.toggleModal}>
                      Submit Comment
                  </ModalHeader>
                  <ModalBody>
@@ -117,7 +117,7 @@ function RenderCampsite({campsite}) {
     }
 
     /*Displays comments using the map function */
-function RenderComments({comments, addComment, campsiteId}) {
+    function RenderComments({comments, postComment, campsiteId}) {
         if(comments) {
             return (
                 <div className="col-md-5 m-1">
@@ -130,7 +130,7 @@ function RenderComments({comments, addComment, campsiteId}) {
                             </div>
                         );
                     })}
-                    <CommentForm campsiteId={campsiteId} addComment={addComment} />
+                <CommentForm campsiteId={campsiteId} postComment={postComment} />
                 </div>
             );
                 
@@ -179,7 +179,7 @@ function CampsiteInfo(props) {
                         <RenderCampsite campsite={props.campsite} />
                     <RenderComments 
                         comments={props.comments}
-                        addComment={props.addComment}
+                        postComment={props.postComment}
                         campsiteId={props.campsite.id}
                     />
                     </div>
